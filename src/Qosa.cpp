@@ -1,6 +1,6 @@
 /*    This file is part of Qosa library.
 *     
-*    Created by Carlos Navarro, nov 25th, 20217
+*    Created by Carlos Navarro, navarrocg@github nov 25th, 2017
 *    
 *    Qosa is free software: you can redistribute it and/or modify
 *    it under the terms of the GNU Lesser General Public License as 
