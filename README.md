@@ -12,7 +12,7 @@ This lib depends on:
 * https://github.com/knolleary/pubsubclient
 * https://github.com/tzapu/WiFiManager
 
-#Licence
+# License
 
 GPLv3
 
