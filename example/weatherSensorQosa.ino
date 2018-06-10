@@ -19,34 +19,27 @@ void loop()
   char msg[100];
   qosa->processLoop();
   
- // if ( qosa->getLoopNumber() % 300 == 0 )
- // {
-      float accTemp = 0.0;
-      float accHum = 0.0;      
-      int samples = 5;
-      
-      for ( int i = 0; i < samples; i++ )
-      {
-        sht30.get();
-        accTemp += sht30.cTemp;
-        accHum += sht30.humidity;
-        delay(20);
-      }
-      accTemp = accTemp / (float) samples;
-      accHum = accHum / (float) samples;
-      
-      dtostrf( accTemp,3,2,msg);
-      Serial.println(msg);
-      qosa->getMqttClient()->publish(outTempTopic.c_str(), msg);
-      
-      dtostrf(accHum,3,2,msg);
-      Serial.println(msg);
-      qosa->getMqttClient()->publish(outHumidityTopic.c_str(), msg);      
- // }
- // else
- // {
- //   delay(100);
- // }
+  float accTemp = 0.0;
+  float accHum = 0.0;      
+  int samples = 5;
+
+  for ( int i = 0; i < samples; i++ )
+  {
+    sht30.get();
+    accTemp += sht30.cTemp;
+    accHum += sht30.humidity;
+    delay(20);
+  }
+  accTemp = accTemp / (float) samples;
+  accHum = accHum / (float) samples;
+
+  dtostrf( accTemp,3,2,msg);
+  Serial.println(msg);
+  qosa->getMqttClient()->publish(outTempTopic.c_str(), msg);
+
+  dtostrf(accHum,3,2,msg);
+  Serial.println(msg);
+  qosa->getMqttClient()->publish(outHumidityTopic.c_str(), msg);      
 
   int sleepSeconds = 120;
   // convert to microseconds
